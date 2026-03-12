@@ -1,15 +1,15 @@
 name: Build and Push Image on GHCR
 
 on:
-push:
-  branches:
-    - main
-  paths:
-    - "backend/**"
-    - "frontend/**"
-    - "Dockerfile"
-    - ".github/workflows/**"
-    - "docker-compose.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/**"
+      - "frontend/**"
+      - "Dockerfile"
+      - ".github/workflows/**"
+      - "docker-compose.yml"
   pull_request:
     branches:
       - main
@@ -82,7 +82,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-    
+
     steps:
       - uses: actions/checkout@v4
 
@@ -105,4 +105,3 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/frontend-app:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
